@@ -213,6 +213,19 @@ img {
     background-color: #F87624;
 }
 
+/* ganeralquestions__list */
+
+.ganeralquestions__inner {
+    display: grid;
+    grid-template-columns: 552fr 552fr;
+    gap: 74px;
+}
+
+.ganeralquestions__list {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
 
 
 
