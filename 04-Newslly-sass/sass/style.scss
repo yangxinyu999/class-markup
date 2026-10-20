@@ -1,3 +1,157 @@
+@use 'sass:math';
+$color-text: #888;
+$color-bg: #f6f6f6;
+$color-laber: #bbbb;
+$color-main: #202124;
+$color-accent: #fa6980;
+
+$font-family-base: Helvetica,
+    Arial,
+    sans-serif;
+
+@mixin inner($mw: 800px, $w: 88%) {
+    max-width: $mw;
+    width: $w;
+    margin: 0 auto;
+}
+
+@mixin title-main() {
+    color: $color-main;
+    padding-left: 10px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: math.div(31, 24);
+    text-transform: uppercase;
+    border-left: 10px solid $color-accent;
+}
+
+
 body {
-    margin: 0;
+    color: $color-text;
+    font-size: 14px;
+    font-family: $font-family-base;
+    line-height: math.div(24, 14);
+    letter-spacing: #{math.div(50,1000)}em;
+    // 带单位的除法
+
+    img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: bottom;
+    }
+}
+
+.intro {
+    &__catch {
+        color: $color-accent;
+        font-size: 12px;
+        margin-bottom: 10px;
+        line-height: math.div(20, 12);
+
+    }
+
+    &__title {
+        color: $color-main;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        line-height: math.div(23, 18);
+    }
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card {
+    background-color: #fff;
+
+    &__title {
+        color: $color-main;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+
+    }
+
+    &__content {
+        padding: 35px;
+
+    }
+}
+
+
+
+
+
+
+.header {
+    padding: 30px 0 60px;
+    text-align: center;
+
+    &__inner {
+        @include inner()
+    }
+}
+
+.news {
+    &__inner {
+        @include inner()
+    }
+
+    &__title {
+        @include title-main()
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: percentage(math.div(40, 800));
+        row-gap: 60px;
+
+
+    }
+}
+
+.trending {
+    background-color: $color-bg;
+    padding: 60px 0;
+
+    &__inner {
+        @include inner()
+    }
+
+    &__title {
+        @include title-main()
+    }
+
+    &__list {
+        display: flex;
+        column-gap: percentage(math.div(40, 800));
+    }
+}
+
+
+
+
+.footer {
+    background-color: $color-main;
+
+
+    &__inner {
+        @include inner(1200px, 100%)
+    }
+
+    &__text {
+        color: #fff;
+        font-size: 12px;
+        padding: 100px 0 40px;
+    }
+}
+
+.box {
+    width: 100px+80px;
 }
