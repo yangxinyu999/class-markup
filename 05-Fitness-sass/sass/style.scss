@@ -1,0 +1,273 @@
+@use 'sass:math';
+$font-title: 'Times New Roman';
+$text-size: 14px;
+$font-text: Helvetica;
+$color-text: #9E9E9E;
+$color-title: #292F39;
+$color-btnbg: #5EB6E1;
+$color-catch: #FF1D6A;
+
+@mixin inner() {
+    width: percentage(math.div(12, 14));
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    color: $color-text;
+    font-size: $text-size;
+    font-family: $font-text;
+    line-height: math.div(27, 16);
+    letter-spacing: #{math.div(20,1000)}em;
+
+    h2 {
+        font-family: $font-title;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: bottom;
+    }
+}
+
+
+.btn {
+    display: block;
+    width: 200px;
+    color: #fff;
+    font-weight: bold;
+    padding: 20px 0;
+    background-color: $color-btnbg;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.btn--red {
+    background-color: $color-catch;
+    margin: 0 auto;
+}
+
+
+.intro {
+    &__title {
+        color: $color-title;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+
+    }
+
+    &__sorid {
+        width: 120px;
+        border-bottom: 2px solid $color-btnbg;
+        margin-bottom: 60px;
+    }
+
+    &__content {
+        margin-bottom: 60px;
+        display: grid;
+        gap: 40px;
+    }
+}
+
+.textphoto {
+    position: relative;
+    overflow: hidden;
+
+    &__photo {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__text {
+        color: #fff;
+        font-size: 24px;
+        background: rgba($color: $color-title, $alpha: 0.7);
+        padding: 5% 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.5s ease;
+    }
+
+
+    &:hover {
+        .textphoto__text {
+            transform: translateY(0);
+        }
+
+    }
+}
+
+.card {
+
+
+    &__item {
+        display: grid;
+        justify-items: center;
+        row-gap: 30px;
+        text-align: center;
+    }
+
+    &__content {
+        display: grid;
+        justify-items: center;
+        row-gap: 20px;
+    }
+
+    &__name {
+        color: #fff;
+        font-size: 24px;
+        white-space: nowrap;
+    }
+
+    &__role {
+        color: $color-catch;
+
+    }
+}
+
+
+
+// index
+
+// header
+
+.header {
+    &__inner {
+        @include inner();
+        padding: 40px 0 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    &__gnavlist {
+        color: $color-title;
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+
+        li:hover {
+            color: $color-btnbg;
+            transition: 0.7s;
+        }
+    }
+
+}
+
+// main
+
+.about {
+    margin-bottom: 100px;
+
+    &__inner {
+        @include inner();
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        column-gap: percentage(math.div(80, 1200));
+    }
+}
+
+.team {
+    padding: 100px 0;
+    background-color: $color-title;
+
+    &__info {
+        text-align: center;
+        margin-bottom: 80px;
+
+        .intro__title {
+
+            color: #fff;
+        }
+
+        .intro__sorid {
+            margin: 0 auto;
+            margin-bottom: 60px;
+        }
+    }
+
+    &__card {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+
+        column-gap: 30px;
+    }
+
+
+
+}
+
+
+
+// about
+// class
+.class {
+    margin-bottom: 100px;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__info {
+        text-align: center;
+    }
+
+    .intro__sorid {
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
+
+    &__pic-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-bottom: 60px;
+    }
+}
+
+// testimonials
+
+.testimonials {
+    padding: 100px 0;
+    background-color: $color-title;
+
+    &__info {
+        text-align: center;
+        margin-bottom: 80px;
+
+        .intro__title {
+
+            color: #fff;
+        }
+
+        .intro__sorid {
+            margin: 0 auto;
+            margin-bottom: 60px;
+        }
+    }
+}
+
+// footer
+.footer {
+    background-color: $color-btnbg;
+    padding: 60px 0;
+    text-align: center;
+
+    &__copy {
+        color: #fff;
+        font-size: 12px;
+    }
+}
