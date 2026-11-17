@@ -1,0 +1,103 @@
+@use "sass:math";
+$color-catch: #256be6;
+$color-text: #6c6c6f;
+$color-title: #000;
+
+$font-size-base: 16;
+
+// @function rem($px-value) {
+//     @return #{math.div($px-value,$font-size-base)}rem;
+// }
+@function rem($px-valua) {
+    @return #{math.div($px-valua,$font-size-base)}rem;
+}
+
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value,$font-size-self)}em;
+}
+
+@function ls($xd-value) {
+    @return #{math.div($xd-value,1000)}em;
+}
+
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+body {
+    color: $color-text;
+    font-size: 0.875rem;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: pct(28, 16);
+    // letter-spacing:#{math.div(50,1000)}em;
+    letter-spacing: ls(50);
+}
+
+.intro {
+    &__catch {
+        font-size: rem(12);
+        color: $color-catch;
+        margin-bottom: em(20, 12);
+    }
+
+    &__title {
+        color: $color-title;
+        font-size: clamp(rem(16), 5vw, rem(36));
+        font-weight: bold;
+        margin-bottom: rem(30);
+        line-height: math.div(48, 36);
+    }
+
+}
+
+.btn {
+    display: block;
+    width: 200px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: ls(75);
+    background-color: #256be6;
+    font-size: rem(14);
+    padding: em(20, 14);
+    text-align: center;
+}
+
+.card {
+    &__title {
+
+
+        font-size: clamp(rem(16), 4vw, rem(22));
+
+
+    }
+}
+
+.header {
+    background-color: $color-catch;
+    width: 50vw;
+}
+
+.gnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; // 100vw ではなく 100% にする
+    height: 100vh;
+    height: 100dvh; // 画面の高さいっぱいに固定
+    background-color: rgba(0, 0, 0, 0.9);
+
+    // 高さが足りるときは上下左右中央に配置
+    display: none;
+    place-items: center;
+
+    // 高さが足りないときはメニュー内部で縦スクロールさせる！
+    overflow-y: auto;
+    padding: 4rem 1.5rem; // スクロール時に上下の項目が画面端や閉じるボタンと重ならないための余白
+
+    &__list {
+        display: grid;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}

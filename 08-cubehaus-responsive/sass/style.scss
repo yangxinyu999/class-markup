@@ -1,0 +1,293 @@
+@use "sass:math";
+@use "sass:map";
+
+// --- Variables ---
+
+// Colors
+$color-text: #000000;
+$color-base: #404040;
+$color-main: #2F2F2F;
+$color-accent: #E40465;
+$color-bg: #707070;
+
+// Typography
+$font-size-base: 14;
+$font-family-gothic: "游ゴシック体",
+    "Yu Gothic",
+    YuGothic,
+    sans-serif;
+
+$font-family-mincho: Arial,
+    Helvetica,
+    sans-serif;
+
+
+// Breakpoints
+$breakpoints: (
+    "sm": 640px,
+    // 大型スマホ〜小型タブレット
+    "md": 700px,
+    // 一般的なタブレット
+    "lg": 1024px,
+    // ノートPC・デスクトップ
+    "xl": 1280px // 大型ディスプレイ
+);
+
+// --- Functions ---
+
+// pxをemに変換
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value, $font-size-self)}em;
+}
+
+
+// pxをremに変換
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+// XD/Figmaのトラッキング値をemに変換
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+// 親要素の幅に対する「%」を自動計算
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+// --- Mixins ---
+
+// メディアクエリ（モバイルファースト）
+@mixin mq($breakpoint: md) {
+    $width: map.get($breakpoints, $breakpoint);
+
+    @media (width >=$width) {
+        @content;
+    }
+}
+
+// インナーコンテナ幅の指定
+@mixin inner($mw: 1000px, $w: 82%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// 共通
+body {
+    color: $color-text;
+    font-family: $font-family-gothic;
+    letter-spacing: ls(50);
+    line-height: pct(34, 14);
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.center {
+    text-align: center;
+}
+
+.intro {
+
+
+    &__title {
+        font-size: rem(32);
+        font-weight: bold;
+        margin-bottom: rem(24);
+    }
+
+    &__title-solid {
+        width: 100px;
+        border: 2px solid $color-accent;
+        margin: 0 auto;
+        margin-bottom: rem(64);
+
+    }
+
+    &__content {
+        display: grid;
+        gap: rem(48);
+    }
+
+    &__text {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    @include mq() {
+        &__br {
+            display: none
+        }
+    }
+
+
+}
+
+.card {
+    &__title {
+        font-size: rem(18);
+        font-weight: bold;
+        margin: rem(24) 0 0;
+    }
+
+    &__content {
+        margin-bottom: rem(24)
+    }
+}
+
+.header {
+    &__inner {
+        @include inner();
+        padding: rem(48) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        color: $color-main;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: $font-family-mincho;
+        letter-spacing: ls(100);
+        line-height: pct(29, 24);
+        white-space: nowrap;
+    }
+
+    &__gnavlist {
+        display: flex;
+        gap: 32px;
+
+        li {
+            font-size: 12px;
+            font-family: $font-family-mincho;
+        }
+
+        li:hover {
+            color: $color-accent;
+        }
+    }
+
+}
+
+.philosophy {
+    margin-bottom: rem(124);
+
+    @include mq() {
+        margin-bottom: rem(128);
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__pic {
+        width: 100%;
+    }
+
+    &__info {
+        margin-top: rem(80);
+        text-align: center;
+    }
+}
+
+.works {
+    background-color: #F4F4F4;
+    padding: rem(124) 0;
+
+
+    @include mq() {
+        padding: rem(128) 0 rem(124);
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__card-list {
+        display: grid;
+        gap: rem(64);
+
+
+        @include mq() {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: rem(50);
+        }
+    }
+}
+
+.time {
+    padding: rem(124) 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    @include mq() {
+        &__scroll-note {
+            display: none;
+        }
+    }
+
+    .table-scroll {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+
+
+
+    }
+
+    &__table {
+        width: 100%;
+        max-width: rem(800);
+        border-collapse: collapse;
+        white-space: nowrap;
+        table-layout: fixed;
+        margin-bottom: rem(25);
+
+        th,
+        td {
+            padding: rem(15) 0;
+            border: 1px solid $color-bg;
+            padding: rem(15) 0;
+            letter-spacing: ls(100);
+            line-height: pct(24, 14);
+            text-align: center;
+
+        }
+
+        th {
+            width: rem(300);
+            background-color: #EDEFF2;
+            font-weight: bold;
+        }
+
+        td {
+            width: rem(320);
+        }
+    }
+}
+
+.footer {
+    background-color: $color-main;
+    padding: 80px;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__copy {
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: rem(12);
+        font-family: $font-family-mincho;
+        text-align: center;
+    }
+}

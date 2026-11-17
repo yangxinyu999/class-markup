@@ -4,7 +4,7 @@ $color-bg: #f6f6f6;
 $color-laber: #bbbb;
 $color-main: #202124;
 $color-accent: #fa6980;
-
+$font-size-base: 16px;
 $font-family-base: Helvetica,
     Arial,
     sans-serif;
@@ -15,11 +15,27 @@ $font-family-base: Helvetica,
     margin: 0 auto;
 }
 
+@function rem($px-valua) {
+    @return #{math.div($px-valua,$font-size-base)}rem;
+}
+
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value,$font-size-self)}em;
+}
+
+@function ls($xd-value) {
+    @return #{math.div($xd-value,1000)}em;
+}
+
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
 @mixin title-main() {
     color: $color-main;
-    padding-left: 10px;
+    padding-left: em(10, 20);
     margin-bottom: 30px;
-    font-size: 24px;
+    font-size: clamp(16px, 4vw, 24px);
     font-weight: bold;
     line-height: math.div(31, 24);
     text-transform: uppercase;
@@ -29,10 +45,10 @@ $font-family-base: Helvetica,
 
 body {
     color: $color-text;
-    font-size: 14px;
+    font-size: rem(14);
     font-family: $font-family-base;
-    line-height: math.div(24, 14);
-    letter-spacing: #{math.div(50,1000)}em;
+    line-height: pct(24, 14);
+    letter-spacing: ls(50);
     // 带单位的除法
 
     img {

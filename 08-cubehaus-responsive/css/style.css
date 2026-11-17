@@ -1,0 +1,192 @@
+@charset "UTF-8";
+body {
+  color: #000000;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+  letter-spacing: 0.05em;
+  line-height: 242.8571428571%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.center {
+  text-align: center;
+}
+
+.intro__title {
+  font-size: 2.2857142857rem;
+  font-weight: bold;
+  margin-bottom: 1.7142857143rem;
+}
+.intro__title-solid {
+  width: 100px;
+  border: 2px solid #E40465;
+  margin: 0 auto;
+  margin-bottom: 4.5714285714rem;
+}
+.intro__content {
+  display: grid;
+  gap: 3.4285714286rem;
+}
+.intro__text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+@media (width >= 700px) {
+  .intro__br {
+    display: none;
+  }
+}
+
+.card__title {
+  font-size: 1.2857142857rem;
+  font-weight: bold;
+  margin: 1.7142857143rem 0 0;
+}
+.card__content {
+  margin-bottom: 1.7142857143rem;
+}
+
+.header__inner {
+  max-width: 1000px;
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3.4285714286rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  color: #2F2F2F;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  line-height: 120.8333333333%;
+  white-space: nowrap;
+}
+.header__gnavlist {
+  display: flex;
+  gap: 32px;
+}
+.header__gnavlist li {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header__gnavlist li:hover {
+  color: #E40465;
+}
+
+.philosophy {
+  margin-bottom: 8.8571428571rem;
+}
+@media (width >= 700px) {
+  .philosophy {
+    margin-bottom: 9.1428571429rem;
+  }
+}
+.philosophy__inner {
+  max-width: 1000px;
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.philosophy__pic {
+  width: 100%;
+}
+.philosophy__info {
+  margin-top: 5.7142857143rem;
+  text-align: center;
+}
+
+.works {
+  background-color: #F4F4F4;
+  padding: 8.8571428571rem 0;
+}
+@media (width >= 700px) {
+  .works {
+    padding: 9.1428571429rem 0 8.8571428571rem;
+  }
+}
+.works__inner {
+  max-width: 1000px;
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.works__card-list {
+  display: grid;
+  gap: 4.5714285714rem;
+}
+@media (width >= 700px) {
+  .works__card-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3.5714285714rem;
+  }
+}
+
+.time {
+  padding: 8.8571428571rem 0;
+}
+.time__inner {
+  max-width: 1000px;
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 700px) {
+  .time__scroll-note {
+    display: none;
+  }
+}
+.time .table-scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.time__table {
+  width: 100%;
+  max-width: 57.1428571429rem;
+  border-collapse: collapse;
+  white-space: nowrap;
+  table-layout: fixed;
+  margin-bottom: 1.7857142857rem;
+}
+.time__table th,
+.time__table td {
+  padding: 1.0714285714rem 0;
+  border: 1px solid #707070;
+  padding: 1.0714285714rem 0;
+  letter-spacing: 0.1em;
+  line-height: 171.4285714286%;
+  text-align: center;
+}
+.time__table th {
+  width: 21.4285714286rem;
+  background-color: #EDEFF2;
+  font-weight: bold;
+}
+.time__table td {
+  width: 22.8571428571rem;
+}
+
+.footer {
+  background-color: #2F2F2F;
+  padding: 80px;
+}
+.footer__inner {
+  max-width: 1000px;
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer__copy {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 0.8571428571rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
