@@ -1,0 +1,283 @@
+body {
+  color: #244D4D;
+  font-family: "Gill Sans", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  letter-spacing: 0;
+  line-height: 168.75%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.center {
+  text-align: center;
+}
+
+.logo {
+  color: #244D4D;
+  font-weight: bold;
+  font-size: 1.625rem;
+}
+
+.intro__title {
+  font-size: 3rem;
+  margin-bottom: 1.5625rem;
+  font-weight: bold;
+  line-height: 120.8333333333%;
+}
+
+.intro__gnavlist {
+  display: flex;
+  gap: 1.875rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro__gnavlist li {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.6s ease;
+}
+
+.intro__gnavlist li:hover {
+  border-bottom-color: #244D4D;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 200fr 250fr;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.card__content {
+  display: grid;
+  gap: 1.5625rem;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.btn {
+  display: block;
+  width: 10.3125em;
+  padding: 1.0625em;
+  background-color: #F4F4F4;
+  border-radius: 0.625rem;
+  text-align: center;
+}
+
+.product {
+  position: relative;
+  background-color: #F4F4F4;
+  padding: 2.8125em;
+  text-align: center;
+}
+
+.product__cart-btn {
+  position: absolute;
+  right: 0.9375rem;
+  top: -0.9375rem;
+}
+
+.product__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.9375rem;
+  white-space: nowrap;
+}
+
+.product__text {
+  margin-bottom: 1.875rem;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 2.5rem 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.header__inner {
+  max-width: 1000px;
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__gnav-list {
+  display: flex;
+  gap: 1.875rem;
+}
+
+.header__gnav-list li {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.6s ease;
+}
+
+.header__gnav-list li:hover {
+  border-bottom-color: #244D4D;
+}
+
+.aside {
+  position: fixed;
+  right: max((100% - 1000px) / 2, 7%);
+  top: 50%;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 3.125rem;
+  padding: 1.875rem;
+}
+
+.aside__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.625rem;
+}
+
+.hero {
+  background: url("/images/bg_hero.png") center/cover no-repeat;
+  padding: 15.625rem 0 8.75rem;
+  margin-bottom: 6rem;
+}
+
+@media (width >=740px) {
+  .hero {
+    margin-bottom: 7.5rem;
+  }
+}
+
+.hero__inner {
+  max-width: 1000px;
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__info {
+  width: 30rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 4.0625rem 3.75rem;
+}
+
+.about {
+  margin-bottom: 6rem;
+}
+
+@media (width >=740px) {
+  .about {
+    margin-bottom: 7.5rem;
+  }
+}
+
+.about__inner {
+  max-width: 1000px;
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about__info {
+  margin-bottom: 3.125rem;
+}
+
+.about__list {
+  display: grid;
+  gap: 3.125rem;
+}
+
+@media (width >=740px) {
+  .about__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.75rem 3.125rem;
+  }
+}
+
+.about .btn {
+  margin: 3.75em auto 0;
+}
+
+.products {
+  margin-bottom: 6rem;
+}
+
+@media (width >=740px) {
+  .products {
+    margin-bottom: 7.5rem;
+  }
+}
+
+.products__inner {
+  max-width: 1000px;
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.products__info {
+  margin-bottom: 1.875rem;
+}
+
+.products__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.1875rem 2.5rem;
+}
+
+@media (width >=740px) {
+  .products__list {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.1875rem 3.125rem;
+  }
+}
+
+.information {
+  margin-bottom: 6rem;
+}
+
+@media (width >=740px) {
+  .information {
+    margin-bottom: 7.5rem;
+  }
+}
+
+.information__inner {
+  max-width: 1000px;
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.information__info {
+  margin-bottom: 3.125rem;
+}
+
+.footer {
+  color: #ffffff;
+  padding: 5rem 0;
+  background-color: #244D4D;
+}
+
+.footer__logo {
+  color: #ffffff;
+  margin-bottom: 1.5625rem;
+}
+
+.footer__copy {
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+/*# sourceMappingURL=style.css.map */

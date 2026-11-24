@@ -124,8 +124,13 @@ img {
 }
 @media (width >= 700px) {
   .works__card-list {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3.5714285714rem;
+  }
+}
+@media (width >= 1024px) {
+  .works__card-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

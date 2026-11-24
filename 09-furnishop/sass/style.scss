@@ -1,0 +1,330 @@
+@use "sass:math";
+@use "sass:map";
+
+// --- Variables ---
+
+// Colors
+$color-text: #244D4D;
+$color-base: #ffffff;
+$color-main: #000000;
+$color-accent: #e40065;
+$color-bg: #F4F4F4;
+
+// Typography
+$font-size-base: 16;
+$font-family-gothic: 'Gill Sans', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+
+
+$font-family-mincho: "Times New Roman", Times, "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+
+// Breakpoints
+$breakpoints: (
+    "sm": 640px,
+    // 大型スマホ〜小型タブレット
+    "md": 740px,
+    // 一般的なタブレット
+    "lg": 1024px,
+    // ノートPC・デスクトップ
+    "xl": 1280px // 大型ディスプレイ
+);
+
+// --- Functions ---
+
+// pxをemに変換
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value, $font-size-self)}em;
+}
+
+
+// pxをremに変換
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+// XD/Figmaのトラッキング値をemに変換
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+// 親要素の幅に対する「%」を自動計算
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+// --- Mixins ---
+
+// メディアクエリ（モバイルファースト）
+@mixin mq($breakpoint: md) {
+    $width: map.get($breakpoints, $breakpoint);
+
+    @media (width >=$width) {
+        @content;
+    }
+}
+
+// インナーコンテナ幅の指定
+@mixin inner($mw: 1000px, $w: 86%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin mb() {
+    margin-bottom: rem(96);
+
+    @include mq() {
+        margin-bottom: rem(120);
+    }
+}
+
+body {
+    color: $color-text;
+    font-family: $font-family-gothic;
+    letter-spacing: 0;
+    line-height: pct(27, 16);
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.center {
+    text-align: center;
+}
+
+.logo {
+    color: $color-text;
+    font-weight: bold;
+    font-size: rem(26);
+}
+
+.intro {
+    &__title {
+        font-size: rem(48);
+        margin-bottom: rem(25);
+        font-weight: bold;
+        line-height: pct(58, 48);
+    }
+
+    &__gnavlist {
+        display: flex;
+        gap: rem(30);
+        align-items: center;
+        justify-content: center;
+
+        li {
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.6s ease;
+
+            &:hover {
+                border-bottom-color: $color-text;
+            }
+        }
+    }
+
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 200fr 250fr;
+    align-items: center;
+    gap: rem(20);
+
+    &__content {
+        display: grid;
+        gap: rem(25);
+    }
+
+    &__title {
+        font-size: rem(24);
+        font-weight: bold;
+        white-space: nowrap;
+    }
+}
+
+.btn {
+    display: block;
+    width: em(165, 16);
+    padding: em(17, 16);
+    background-color: $color-bg;
+    border-radius: rem(10);
+    text-align: center;
+}
+
+
+.product {
+    position: relative;
+    background-color: $color-bg;
+    padding: em(45, 16);
+    text-align: center;
+
+    &__cart-btn {
+        position: absolute;
+        right: rem(15);
+        top: rem(-15);
+    }
+
+    &__title {
+        font-size: rem(24);
+        font-weight: bold;
+        margin-bottom: rem(15);
+        white-space: nowrap;
+    }
+
+    &__text {
+        margin-bottom: rem(30);
+    }
+}
+
+.header {
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    padding: rem(40) 0;
+    background-color: rgba($color: #fff, $alpha: 0.8);
+
+    &__inner {
+        @include inner;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    &__gnav-list {
+        display: flex;
+        gap: rem(30);
+
+        li {
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.6s ease;
+
+            &:hover {
+                border-bottom-color: $color-text;
+            }
+        }
+    }
+}
+
+.aside {
+    position: fixed;
+    right: max(calc((100% - 1000px) / 2), 7%);
+    top: 50%;
+    z-index: 100;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    border-radius: rem(50);
+    padding: rem(30);
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(26);
+    }
+}
+
+.hero {
+    background: url("/images/bg_hero.png") center / cover no-repeat;
+
+    padding: rem(250) 0 rem(140);
+
+    @include mb();
+
+    &__inner {
+        @include inner();
+    }
+
+    &__info {
+        width: rem(480);
+        background-color: rgba($color: #fff, $alpha: 0.8);
+        padding: rem(65) rem(60);
+    }
+}
+
+.about {
+    @include mb();
+
+    &__inner {
+        @include inner()
+    }
+
+    &__info {
+        margin-bottom: rem(50);
+    }
+
+    &__list {
+        display: grid;
+        gap: rem(50);
+
+        @include mq() {
+            grid-template-columns: 1fr 1fr;
+            gap: rem(60) rem(50);
+
+        }
+    }
+
+    .btn {
+        margin: em(60, 16) auto 0;
+    }
+}
+
+.products {
+    @include mb();
+
+    &__inner {
+        @include inner;
+    }
+
+    &__info {
+        margin-bottom: rem(30);
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: rem(35) rem(40);
+
+
+        @include mq() {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: rem(35) rem(50);
+        }
+    }
+}
+
+.information {
+    @include mb();
+
+    &__inner {
+        @include inner();
+    }
+
+    &__info {
+        margin-bottom: rem(50);
+    }
+}
+
+
+.footer {
+    color: $color-base;
+    padding: rem(80) 0;
+    background-color: $color-text;
+
+    &__logo {
+        color: $color-base;
+        margin-bottom: rem(25);
+    }
+
+    &__copy {
+        color: $color-base;
+        text-align: center;
+        font-size: rem(12);
+    }
+}
